@@ -1,0 +1,349 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="900" viewBox="0 0 1400 900">
+  <style>
+    .bg { fill: #101418; }
+    .title { font: 700 28px 'Segoe UI', sans-serif; fill: #f2f4f8; letter-spacing: 1px; }
+    .subtitle { font: 600 14px 'Segoe UI', sans-serif; fill: #cdd3dc; }
+    .region-label { font: 600 16px 'Segoe UI', sans-serif; fill: #f7fafc; }
+    .legend-title { font: 700 18px 'Segoe UI', sans-serif; fill: #f7fafc; }
+    .legend-text { font: 600 14px 'Segoe UI', sans-serif; fill: #dfe5ee; }
+    .palette-swatch { stroke: #e8eef6; stroke-width: 1; }
+
+    /* Region fills (ownership shades) */
+    .r1 { fill: #7FAF7A; }
+    .r2 { fill: #B7A16A; }
+    .r3 { fill: #6AAFAF; }
+    .r4 { fill: #8FBF6E; }
+    .r5 { fill: #D1B77B; }
+    .r6 { fill: #6EA8D1; }
+    .r7 { fill: #7DBB8D; }
+    .r8 { fill: #C6A47A; }
+
+    .region-border { stroke: rgba(255,255,255,0.35); stroke-width: 2; fill-opacity: 0.85; }
+    .soft-shadow { filter: drop-shadow(0 2px 2px rgba(0,0,0,0.25)); }
+
+    /* Topography */
+    .river { stroke: #8cc9ff; stroke-width: 2; fill: none; opacity: 0.35; }
+    .hill { fill: #225034; opacity: 0.12; }
+    .forest { fill: #2a5e3f; opacity: 0.18; }
+
+    /* Territory nodes */
+    .node { stroke: #111; stroke-width: 1.5; fill: #f9fafb; }
+    .node-label { font: 600 12px 'Segoe UI', sans-serif; fill: #111; }
+    .icon { font: 700 16px 'Segoe UI Symbol', 'Segoe UI Emoji'; }
+
+    /* State styles */
+    .neutral .node { fill: #c0c8d4; }
+    .owned .node { fill: #fff; }
+    .under-attack { stroke: #ff4d4d !important; stroke-width: 3; }
+    .destroyed .node { fill: #6b7280; }
+    .smoke { fill: rgba(80,80,80,0.55); }
+
+    /* Upgrades */
+    .upgraded .node { stroke: #ffd84d; stroke-width: 3; }
+    .glow { filter: drop-shadow(0 0 6px rgba(255,216,77,0.6)); }
+
+    /* Routes and gates */
+    .route { stroke: #f6e3a1; stroke-width: 1.5; stroke-linecap: round; fill: none; opacity: 0.85; }
+    .gate { stroke: #fff; fill: none; opacity: 0.85; }
+    .gate-fill { fill: #f6e3a1; opacity: 0.9; }
+
+    /* Utility */
+    .muted { opacity: 0.65; }
+  </style>
+
+  <!-- Background -->
+  <rect class="bg" x="0" y="0" width="1400" height="900" />
+
+  <!-- Title -->
+  <text class="title" x="700" y="44" text-anchor="middle">Mindfront – The Knowledge War</text>
+  <text class="subtitle" x="700" y="70" text-anchor="middle">Overworld Map • Lost Kingdom Style • 8 Regions • 8px Grid</text>
+
+  <!-- Faint topography -->
+  <path class="river" d="M 100 160 C 260 220, 360 120, 520 180 S 780 260, 940 220 S 1160 160, 1280 200" />
+  <path class="river" d="M 220 560 C 420 640, 620 560, 820 640 S 1040 720, 1220 680" />
+  <ellipse class="hill" cx="360" cy="380" rx="90" ry="44" />
+  <ellipse class="hill" cx="1040" cy="360" rx="100" ry="54" />
+  <ellipse class="forest" cx="260" cy="240" rx="120" ry="80" />
+  <ellipse class="forest" cx="1120" cy="620" rx="140" ry="86" />
+
+  <!-- Regions -->
+  <!-- Region #1 – Verdant Rampart (edge, defensive) -->
+  <g id="region-1" class="soft-shadow">
+    <path class="r1 region-border" d="M 96 96 C 160 72, 280 88, 336 120 C 368 136, 360 200, 340 240 C 320 280, 248 300, 200 288 C 152 276, 92 244, 88 204 C 84 164, 72 120, 96 96 Z" />
+    <text class="region-label" x="200" y="112" text-anchor="middle">Region #1 – Verdant Rampart</text>
+    <!-- Nodes (6 total) -->
+    <!-- Camps -->
+    <g class="owned">
+      <circle class="node" cx="168" cy="168" r="12" />
+      <text class="icon" x="168" y="164" text-anchor="middle">🏕</text>
+      <text class="node-label" x="168" y="188" text-anchor="middle">Camp V1</text>
+    </g>
+    <g class="owned upgraded glow">
+      <circle class="node" cx="296" cy="176" r="12" />
+      <text class="icon" x="296" y="172" text-anchor="middle">🏕</text>
+      <text class="node-label" x="296" y="196" text-anchor="middle">Camp V2</text>
+    </g>
+    <!-- Fortress -->
+    <g class="owned">
+      <circle class="node" cx="232" cy="220" r="13" />
+      <text class="icon" x="232" y="216" text-anchor="middle">🏰</text>
+      <text class="node-label" x="232" y="240" text-anchor="middle">Fortress V</text>
+    </g>
+    <!-- Tower -->
+    <g class="owned">
+      <circle class="node" cx="140" cy="230" r="11" />
+      <text class="icon" x="140" y="226" text-anchor="middle">🔭</text>
+      <text class="node-label" x="140" y="248" text-anchor="middle">Tower V</text>
+    </g>
+    <!-- Village -->
+    <g class="owned">
+      <circle class="node" cx="292" cy="236" r="10" />
+      <text class="icon" x="292" y="232" text-anchor="middle">🏡</text>
+      <text class="node-label" x="292" y="252" text-anchor="middle">Village V</text>
+    </g>
+    <!-- Altar -->
+    <g class="owned">
+      <circle class="node" cx="200" cy="264" r="10" />
+      <text class="icon" x="200" y="260" text-anchor="middle">⛩️</text>
+      <text class="node-label" x="200" y="280" text-anchor="middle">Altar V</text>
+    </g>
+  </g>
+
+  <!-- Region #2 – Amber Marches -->
+  <g id="region-2" class="soft-shadow">
+    <path class="r2 region-border" d="M 368 108 C 420 84, 560 92, 632 120 C 660 130, 664 176, 636 208 C 608 240, 564 260, 508 256 C 452 252, 392 236, 372 204 C 352 172, 332 132, 368 108 Z" />
+    <text class="region-label" x="500" y="120" text-anchor="middle">Region #2 – Amber Marches</text>
+    <!-- Nodes -->
+    <g class="owned"><circle class="node" cx="420" cy="160" r="12" /><text class="icon" x="420" y="156" text-anchor="middle">🏕</text><text class="node-label" x="420" y="180" text-anchor="middle">Camp A1</text></g>
+    <g class="owned"><circle class="node" cx="580" cy="160" r="12" /><text class="icon" x="580" y="156" text-anchor="middle">🏕</text><text class="node-label" x="580" y="180" text-anchor="middle">Camp A2</text></g>
+    <g class="owned"><circle class="node" cx="540" cy="200" r="13" /><text class="icon" x="540" y="196" text-anchor="middle">🏰</text><text class="node-label" x="540" y="220" text-anchor="middle">Fortress A</text></g>
+    <g class="owned upgraded glow"><circle class="node" cx="468" cy="206" r="11" /><text class="icon" x="468" y="202" text-anchor="middle">⚗️</text><text class="node-label" x="468" y="226" text-anchor="middle">Generator A</text></g>
+    <g class="owned"><circle class="node" cx="608" cy="216" r="10" /><text class="icon" x="608" y="212" text-anchor="middle">🏡</text><text class="node-label" x="608" y="236" text-anchor="middle">Village A</text></g>
+    <g class="owned"><circle class="node" cx="452" cy="232" r="10" /><text class="icon" x="452" y="228" text-anchor="middle">⛩️</text><text class="node-label" x="452" y="252" text-anchor="middle">Altar A</text></g>
+  </g>
+
+  <!-- Region #3 – Azure Crown (central) -->
+  <g id="region-3" class="soft-shadow">
+    <path class="r3 region-border" d="M 680 104 C 744 84, 864 92, 944 124 C 972 136, 972 188, 948 220 C 924 252, 876 272, 820 268 C 764 264, 704 244, 688 210 C 672 176, 648 128, 680 104 Z" />
+    <text class="region-label" x="820" y="118" text-anchor="middle">Region #3 – Azure Crown</text>
+    <!-- Nodes -->
+    <g class="neutral"><circle class="node" cx="732" cy="160" r="12" /><text class="icon" x="732" y="156" text-anchor="middle">🏕</text><text class="node-label" x="732" y="180" text-anchor="middle">Camp Z1</text></g>
+    <g class="owned upgraded glow"><circle class="node" cx="896" cy="160" r="12" /><text class="icon" x="896" y="156" text-anchor="middle">🏕</text><text class="node-label" x="896" y="180" text-anchor="middle">Camp Z2</text></g>
+    <g class="owned"><circle class="node" cx="860" cy="202" r="13" /><text class="icon" x="860" y="198" text-anchor="middle">🏰</text><text class="node-label" x="860" y="222" text-anchor="middle">Fortress Z</text></g>
+    <g class="owned"><circle class="node" cx="788" cy="206" r="11" /><text class="icon" x="788" y="202" text-anchor="middle">🔭</text><text class="node-label" x="788" y="226" text-anchor="middle">Tower Z</text></g>
+    <g class="owned"><circle class="node" cx="920" cy="220" r="10" /><text class="icon" x="920" y="216" text-anchor="middle">🏡</text><text class="node-label" x="920" y="236" text-anchor="middle">Village Z</text></g>
+    <g class="owned"><circle class="node" cx="750" cy="232" r="10" /><text class="icon" x="750" y="228" text-anchor="middle">⛩️</text><text class="node-label" x="750" y="252" text-anchor="middle">Altar Z</text></g>
+  </g>
+
+  <!-- Region #4 – Emerald Front (central-left) -->
+  <g id="region-4" class="soft-shadow">
+    <path class="r4 region-border" d="M 264 312 C 312 288, 440 296, 520 320 C 544 328, 548 376, 522 410 C 496 444, 432 470, 364 468 C 296 466, 240 444, 228 410 C 216 376, 220 336, 264 312 Z" />
+    <text class="region-label" x="396" y="328" text-anchor="middle">Region #4 – Emerald Front</text>
+    <!-- Nodes -->
+    <g class="owned"><circle class="node" cx="312" cy="360" r="12" /><text class="icon" x="312" y="356" text-anchor="middle">🏕</text><text class="node-label" x="312" y="380" text-anchor="middle">Camp E1</text></g>
+    <g class="owned"><circle class="node" cx="468" cy="360" r="12" /><text class="icon" x="468" y="356" text-anchor="middle">🏕</text><text class="node-label" x="468" y="380" text-anchor="middle">Camp E2</text></g>
+    <g class="owned under-attack"><circle class="node" cx="432" cy="402" r="13" /><text class="icon" x="432" y="398" text-anchor="middle">🏰</text><text class="node-label" x="432" y="422" text-anchor="middle">Fortress E</text></g>
+    <g class="owned"><circle class="node" cx="360" cy="408" r="11" /><text class="icon" x="360" y="404" text-anchor="middle">⚗️</text><text class="node-label" x="360" y="428" text-anchor="middle">Generator E</text></g>
+    <g class="owned"><circle class="node" cx="500" cy="418" r="10" /><text class="icon" x="500" y="414" text-anchor="middle">🏡</text><text class="node-label" x="500" y="438" text-anchor="middle">Village E</text></g>
+    <g class="owned"><circle class="node" cx="296" cy="424" r="10" /><text class="icon" x="296" y="420" text-anchor="middle">⛩️</text><text class="node-label" x="296" y="444" text-anchor="middle">Altar E</text></g>
+  </g>
+
+  <!-- Region #5 – Sandward Gate (central-right) -->
+  <g id="region-5" class="soft-shadow">
+    <path class="r5 region-border" d="M 560 312 C 616 288, 736 296, 820 322 C 844 330, 850 378, 826 410 C 802 442, 746 470, 680 468 C 614 466, 552 444, 540 410 C 528 376, 528 336, 560 312 Z" />
+    <text class="region-label" x="692" y="328" text-anchor="middle">Region #5 – Sandward Gate</text>
+    <!-- Nodes -->
+    <g class="owned"><circle class="node" cx="612" cy="360" r="12" /><text class="icon" x="612" y="356" text-anchor="middle">🏕</text><text class="node-label" x="612" y="380" text-anchor="middle">Camp S1</text></g>
+    <g class="neutral"><circle class="node" cx="768" cy="360" r="12" /><text class="icon" x="768" y="356" text-anchor="middle">🏕</text><text class="node-label" x="768" y="380" text-anchor="middle">Camp S2</text></g>
+    <g class="owned"><circle class="node" cx="732" cy="402" r="13" /><text class="icon" x="732" y="398" text-anchor="middle">🏰</text><text class="node-label" x="732" y="422" text-anchor="middle">Fortress S</text></g>
+    <g class="owned upgraded glow"><circle class="node" cx="660" cy="408" r="11" /><text class="icon" x="660" y="404" text-anchor="middle">🔭</text><text class="node-label" x="660" y="428" text-anchor="middle">Tower S</text></g>
+    <g class="owned"><circle class="node" cx="800" cy="418" r="10" /><text class="icon" x="800" y="414" text-anchor="middle">🏡</text><text class="node-label" x="800" y="438" text-anchor="middle">Village S</text></g>
+    <g class="owned"><circle class="node" cx="596" cy="424" r="10" /><text class="icon" x="596" y="420" text-anchor="middle">⛩️</text><text class="node-label" x="596" y="444" text-anchor="middle">Altar S</text></g>
+  </g>
+
+  <!-- Region #6 – Azure Expanse (central-south-right) -->
+  <g id="region-6" class="soft-shadow">
+    <path class="r6 region-border" d="M 680 544 C 744 520, 864 528, 944 560 C 972 572, 972 624, 948 656 C 924 688, 876 708, 820 704 C 764 700, 704 680, 688 646 C 672 612, 648 564, 680 544 Z" />
+    <text class="region-label" x="820" y="556" text-anchor="middle">Region #6 – Azure Expanse</text>
+    <!-- Nodes -->
+    <g class="owned"><circle class="node" cx="732" cy="600" r="12" /><text class="icon" x="732" y="596" text-anchor="middle">🏕</text><text class="node-label" x="732" y="620" text-anchor="middle">Camp X1</text></g>
+    <g class="owned"><circle class="node" cx="896" cy="600" r="12" /><text class="icon" x="896" y="596" text-anchor="middle">🏕</text><text class="node-label" x="896" y="620" text-anchor="middle">Camp X2</text></g>
+    <g class="owned"><circle class="node" cx="860" cy="642" r="13" /><text class="icon" x="860" y="638" text-anchor="middle">🏰</text><text class="node-label" x="860" y="662" text-anchor="middle">Fortress X</text></g>
+    <g class="owned"><circle class="node" cx="788" cy="646" r="11" /><text class="icon" x="788" y="642" text-anchor="middle">⚗️</text><text class="node-label" x="788" y="666" text-anchor="middle">Generator X</text></g>
+    <g class="owned upgraded glow"><circle class="node" cx="920" cy="660" r="10" /><text class="icon" x="920" y="656" text-anchor="middle">🏡</text><text class="node-label" x="920" y="680" text-anchor="middle">Village X</text></g>
+    <g class="owned"><circle class="node" cx="750" cy="672" r="10" /><text class="icon" x="750" y="668" text-anchor="middle">⛩️</text><text class="node-label" x="750" y="692" text-anchor="middle">Altar X</text></g>
+  </g>
+
+  <!-- Region #7 – Fern Hollow (south-left central) -->
+  <g id="region-7" class="soft-shadow">
+    <path class="r7 region-border" d="M 368 544 C 420 520, 560 528, 632 556 C 660 566, 664 612, 636 644 C 608 676, 564 696, 508 692 C 452 688, 392 672, 372 640 C 352 608, 332 568, 368 544 Z" />
+    <text class="region-label" x="500" y="556" text-anchor="middle">Region #7 – Fern Hollow</text>
+    <!-- Nodes -->
+    <g class="owned"><circle class="node" cx="420" cy="600" r="12" /><text class="icon" x="420" y="596" text-anchor="middle">🏕</text><text class="node-label" x="420" y="620" text-anchor="middle">Camp F1</text></g>
+    <g class="neutral"><circle class="node" cx="580" cy="600" r="12" /><text class="icon" x="580" y="596" text-anchor="middle">🏕</text><text class="node-label" x="580" y="620" text-anchor="middle">Camp F2</text></g>
+    <g class="owned"><circle class="node" cx="540" cy="642" r="13" /><text class="icon" x="540" y="638" text-anchor="middle">🏰</text><text class="node-label" x="540" y="662" text-anchor="middle">Fortress F</text></g>
+    <g class="owned"><circle class="node" cx="468" cy="646" r="11" /><text class="icon" x="468" y="642" text-anchor="middle">🔭</text><text class="node-label" x="468" y="666" text-anchor="middle">Tower F</text></g>
+    <g class="owned"><circle class="node" cx="608" cy="660" r="10" /><text class="icon" x="608" y="656" text-anchor="middle">🏡</text><text class="node-label" x="608" y="680" text-anchor="middle">Village F</text></g>
+    <g class="owned upgraded glow"><circle class="node" cx="452" cy="672" r="10" /><text class="icon" x="452" y="668" text-anchor="middle">⛩️</text><text class="node-label" x="452" y="692" text-anchor="middle">Altar F</text></g>
+  </g>
+
+  <!-- Region #8 – Clay Verge (edge, defensive) -->
+  <g id="region-8" class="soft-shadow">
+    <path class="r8 region-border" d="M 96 560 C 160 536, 280 552, 336 584 C 368 600, 360 664, 340 704 C 320 744, 248 764, 200 752 C 152 740, 92 708, 88 668 C 84 628, 72 584, 96 560 Z" />
+    <text class="region-label" x="200" y="576" text-anchor="middle">Region #8 – Clay Verge</text>
+    <!-- Nodes -->
+    <g class="owned"><circle class="node" cx="168" cy="632" r="12" /><text class="icon" x="168" y="628" text-anchor="middle">🏕</text><text class="node-label" x="168" y="652" text-anchor="middle">Camp C1</text></g>
+    <g class="owned"><circle class="node" cx="296" cy="640" r="12" /><text class="icon" x="296" y="636" text-anchor="middle">🏕</text><text class="node-label" x="296" y="660" text-anchor="middle">Camp C2</text></g>
+    <g class="destroyed"><circle class="node" cx="232" cy="684" r="13" /><text class="icon" x="232" y="680" text-anchor="middle">🏰</text><text class="node-label" x="232" y="704" text-anchor="middle">Fortress C</text><ellipse class="smoke" cx="232" cy="664" rx="8" ry="12" /></g>
+    <g class="owned"><circle class="node" cx="140" cy="694" r="11" /><text class="icon" x="140" y="690" text-anchor="middle">⚗️</text><text class="node-label" x="140" y="714" text-anchor="middle">Generator C</text></g>
+    <g class="owned"><circle class="node" cx="292" cy="700" r="10" /><text class="icon" x="292" y="696" text-anchor="middle">🏡</text><text class="node-label" x="292" y="720" text-anchor="middle">Village C</text></g>
+    <g class="neutral"><circle class="node" cx="200" cy="728" r="10" /><text class="icon" x="200" y="724" text-anchor="middle">⛩️</text><text class="node-label" x="200" y="748" text-anchor="middle">Altar C</text></g>
+  </g>
+
+  <!-- Central Great Fortress / Capital Node (neutral) -->
+  <g id="capital" class="soft-shadow neutral">
+    <circle class="node" cx="700" cy="448" r="16" />
+    <text class="icon" x="700" y="444" text-anchor="middle">🏰</text>
+    <text class="node-label" x="700" y="468" text-anchor="middle">Great Fortress (Neutral)</text>
+  </g>
+
+  <!-- Routes within regions (thin white/gold lines) -->
+  <!-- Example routes for each region -->
+  <path class="route" d="M 168 168 Q 196 188 232 220" />
+  <path class="route" d="M 296 176 Q 264 198 232 220" />
+  <path class="route" d="M 232 220 Q 212 240 200 264" />
+  <path class="route" d="M 140 230 Q 168 210 232 220" />
+  <path class="route" d="M 292 236 Q 262 230 232 220" />
+
+  <path class="route" d="M 420 160 Q 480 180 540 200" />
+  <path class="route" d="M 580 160 Q 560 180 540 200" />
+  <path class="route" d="M 468 206 Q 500 210 540 200" />
+  <path class="route" d="M 608 216 Q 572 210 540 200" />
+  <path class="route" d="M 452 232 Q 496 216 540 200" />
+
+  <path class="route" d="M 732 160 Q 800 182 860 202" />
+  <path class="route" d="M 896 160 Q 878 182 860 202" />
+  <path class="route" d="M 788 206 Q 820 206 860 202" />
+  <path class="route" d="M 920 220 Q 890 210 860 202" />
+  <path class="route" d="M 750 232 Q 802 216 860 202" />
+
+  <path class="route" d="M 312 360 Q 372 382 432 402" />
+  <path class="route" d="M 468 360 Q 450 382 432 402" />
+  <path class="route" d="M 360 408 Q 392 408 432 402" />
+  <path class="route" d="M 500 418 Q 470 410 432 402" />
+  <path class="route" d="M 296 424 Q 356 414 432 402" />
+
+  <path class="route" d="M 612 360 Q 672 382 732 402" />
+  <path class="route" d="M 768 360 Q 750 382 732 402" />
+  <path class="route" d="M 660 408 Q 692 408 732 402" />
+  <path class="route" d="M 800 418 Q 770 410 732 402" />
+  <path class="route" d="M 596 424 Q 656 414 732 402" />
+
+  <path class="route" d="M 732 600 Q 800 622 860 642" />
+  <path class="route" d="M 896 600 Q 878 622 860 642" />
+  <path class="route" d="M 788 646 Q 820 646 860 642" />
+  <path class="route" d="M 920 660 Q 890 650 860 642" />
+  <path class="route" d="M 750 672 Q 802 656 860 642" />
+
+  <path class="route" d="M 420 600 Q 480 622 540 642" />
+  <path class="route" d="M 580 600 Q 560 622 540 642" />
+  <path class="route" d="M 468 646 Q 500 646 540 642" />
+  <path class="route" d="M 608 660 Q 572 650 540 642" />
+  <path class="route" d="M 452 672 Q 504 656 540 642" />
+
+  <path class="route" d="M 168 632 Q 200 654 232 684" />
+  <path class="route" d="M 296 640 Q 264 662 232 684" />
+  <path class="route" d="M 140 694 Q 188 690 232 684" />
+  <path class="route" d="M 292 700 Q 262 692 232 684" />
+  <path class="route" d="M 200 728 Q 216 706 232 684" />
+
+  <!-- Inter-region gates (small icons on borders) -->
+  <!-- Region 1 ↔ Region 2 -->
+  <g class="soft-shadow">
+    <rect class="gate" x="352" y="184" width="20" height="10" rx="2" />
+    <rect class="gate-fill" x="355" y="186" width="14" height="6" rx="2" />
+  </g>
+  <!-- Region 2 ↔ Region 3 -->
+  <g class="soft-shadow">
+    <rect class="gate" x="664" y="186" width="20" height="10" rx="2" />
+    <rect class="gate-fill" x="667" y="188" width="14" height="6" rx="2" />
+  </g>
+  <!-- Region 4 ↔ Region 5 -->
+  <g class="soft-shadow">
+    <rect class="gate" x="540" y="396" width="20" height="10" rx="2" />
+    <rect class="gate-fill" x="543" y="398" width="14" height="6" rx="2" />
+  </g>
+  <!-- Region 5 ↔ Region 3 -->
+  <g class="soft-shadow">
+    <rect class="gate" x="680" y="280" width="20" height="10" rx="2" />
+    <rect class="gate-fill" x="683" y="282" width="14" height="6" rx="2" />
+  </g>
+  <!-- Region 5 ↔ Region 6 -->
+  <g class="soft-shadow">
+    <rect class="gate" x="740" y="524" width="20" height="10" rx="2" />
+    <rect class="gate-fill" x="743" y="526" width="14" height="6" rx="2" />
+  </g>
+  <!-- Region 4 ↔ Region 7 -->
+  <g class="soft-shadow">
+    <rect class="gate" x="396" y="524" width="20" height="10" rx="2" />
+    <rect class="gate-fill" x="399" y="526" width="14" height="6" rx="2" />
+  </g>
+  <!-- Region 7 ↔ Region 8 -->
+  <g class="soft-shadow">
+    <rect class="gate" x="352" y="636" width="20" height="10" rx="2" />
+    <rect class="gate-fill" x="355" y="638" width="14" height="6" rx="2" />
+  </g>
+
+  <!-- Capital connections -->
+  <path class="route" d="M 700 448 Q 612 398 432 402" />
+  <path class="route" d="M 700 448 Q 780 398 860 202" />
+  <path class="route" d="M 700 448 Q 752 430 732 402" />
+  <path class="route" d="M 700 448 Q 620 462 540 642" />
+  <path class="route" d="M 700 448 Q 780 462 860 642" />
+
+  <!-- Legend and KP economy -->
+  <g id="legend" transform="translate(1040,96)" class="soft-shadow">
+    <rect x="0" y="0" width="300" height="360" rx="12" fill="#0d1216" stroke="#243447" stroke-width="2" />
+    <text class="legend-title" x="20" y="28">Legend</text>
+    <g transform="translate(20,48)">
+      <circle class="node" cx="12" cy="12" r="10" /><text class="icon" x="12" y="9" text-anchor="middle">🏕</text><text class="legend-text" x="36" y="16">Crusader Camp (spawn) — upgrade to Fortress (100 KP)</text>
+    </g>
+    <g transform="translate(20,88)">
+      <circle class="node" cx="12" cy="12" r="10" /><text class="icon" x="12" y="9" text-anchor="middle">🏰</text><text class="legend-text" x="36" y="16">Fortress (defense) — main regional stronghold</text>
+    </g>
+    <g transform="translate(20,128)">
+      <circle class="node" cx="12" cy="12" r="10" /><text class="icon" x="12" y="9" text-anchor="middle">🔭</text><text class="legend-text" x="36" y="16">Tower — +vision range (150 KP)</text>
+    </g>
+    <g transform="translate(20,168)">
+      <circle class="node" cx="12" cy="12" r="10" /><text class="icon" x="12" y="9" text-anchor="middle">⚗️</text><text class="legend-text" x="36" y="16">Generator — +1 energy/min (250 KP)</text>
+    </g>
+    <g transform="translate(20,208)">
+      <circle class="node" cx="12" cy="12" r="10" /><text class="icon" x="12" y="9" text-anchor="middle">⛩️</text><text class="legend-text" x="36" y="16">Altar — bonus KP per answer (300 KP)</text>
+    </g>
+    <g transform="translate(20,248)">
+      <circle class="node" cx="12" cy="12" r="10" /><text class="icon" x="12" y="9" text-anchor="middle">🏡</text><text class="legend-text" x="36" y="16">Village/Resource — optional economy node</text>
+    </g>
+    <g transform="translate(20,288)">
+      <path class="route" d="M 0 12 H 20" /><text class="legend-text" x="36" y="16">Route — travel/attack path</text>
+    </g>
+    <g transform="translate(20,328)">
+      <rect class="gate" x="0" y="6" width="20" height="10" rx="2" /><rect class="gate-fill" x="3" y="8" width="14" height="6" rx="2" /><text class="legend-text" x="36" y="16">Gate — border crossing point</text>
+    </g>
+  </g>
+
+  <!-- Palette swatches -->
+  <g id="palette" transform="translate(1040,472)">
+    <text class="legend-title" x="0" y="0">Palette</text>
+    <rect class="palette-swatch r1" x="0" y="12" width="34" height="18" rx="4" />
+    <rect class="palette-swatch r2" x="40" y="12" width="34" height="18" rx="4" />
+    <rect class="palette-swatch r3" x="80" y="12" width="34" height="18" rx="4" />
+    <rect class="palette-swatch r4" x="120" y="12" width="34" height="18" rx="4" />
+    <rect class="palette-swatch r5" x="160" y="12" width="34" height="18" rx="4" />
+    <rect class="palette-swatch r6" x="200" y="12" width="34" height="18" rx="4" />
+    <rect class="palette-swatch r7" x="240" y="12" width="34" height="18" rx="4" />
+    <rect class="palette-swatch r8" x="280" y="12" width="34" height="18" rx="4" />
+  </g>
+
+  <!-- Notes: Central regions (#3–#6) have more connections via routes and gates. Edge regions (#1, #8) show fewer crossings and stronger defenses. -->
+</svg>
+

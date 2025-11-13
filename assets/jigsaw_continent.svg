@@ -1,0 +1,78 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="900" viewBox="0 0 1440 900">
+  <defs>
+    <linearGradient id="bgGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#12161a" />
+      <stop offset="100%" stop-color="#0b0e12" />
+    </linearGradient>
+    <radialGradient id="earthA" cx="50%" cy="35%" r="70%">
+      <stop offset="0%" stop-color="#d8c7aa" />
+      <stop offset="60%" stop-color="#c1ac8d" />
+      <stop offset="100%" stop-color="#9e886d" />
+    </radialGradient>
+    <radialGradient id="earthB" cx="55%" cy="40%" r="70%">
+      <stop offset="0%" stop-color="#d6c4a6" />
+      <stop offset="60%" stop-color="#bfa789" />
+      <stop offset="100%" stop-color="#9a846a" />
+    </radialGradient>
+    <radialGradient id="earthC" cx="45%" cy="45%" r="70%">
+      <stop offset="0%" stop-color="#d4c1a3" />
+      <stop offset="60%" stop-color="#bda485" />
+      <stop offset="100%" stop-color="#988266" />
+    </radialGradient>
+    <filter id="softShadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="14" stdDeviation="18" flood-color="#000000" flood-opacity="0.35" />
+    </filter>
+    <filter id="ridgeEmboss">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="0.6" result="blur" />
+      <feOffset in="blur" dx="0.8" dy="0.6" result="offset" />
+      <feMerge>
+        <feMergeNode in="offset" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+  </defs>
+  <rect x="0" y="0" width="1440" height="900" fill="url(#bgGrad)" />
+  <ellipse cx="720" cy="470" rx="540" ry="280" fill="#000000" opacity="0.18" />
+  <g transform="skewY(-6) scale(1,0.94) translate(0,20)" filter="url(#softShadow)">
+    <g id="continent">
+      <g id="central" fill="url(#earthA)" stroke="#5a4a38" stroke-width="3" stroke-linejoin="round">
+        <path d="M 720 420 C 750 400, 800 398, 828 420 C 856 442, 858 478, 840 504 C 822 530, 784 548, 748 548 C 712 548, 668 540, 646 520 C 624 500, 624 468, 648 446 C 672 424, 690 440, 720 420 Z" />
+      </g>
+      <g id="outer-1" fill="url(#earthB)" stroke="#5a4a38" stroke-width="3" stroke-linejoin="round">
+        <path d="M 640 320 C 680 300, 730 298, 770 308 C 790 314, 802 328, 812 344 C 822 360, 820 372, 800 382 C 780 392, 740 392, 710 386 C 680 380, 648 370, 632 356 C 616 342, 608 332, 640 320 Z" />
+      </g>
+      <g id="outer-2" fill="url(#earthC)" stroke="#5a4a38" stroke-width="3" stroke-linejoin="round">
+        <path d="M 860 330 C 900 328, 940 346, 968 370 C 986 386, 988 404, 972 418 C 956 432, 920 442, 892 442 C 864 442, 844 436, 832 422 C 820 408, 820 388, 832 370 C 844 352, 836 332, 860 330 Z" />
+      </g>
+      <g id="outer-3" fill="url(#earthB)" stroke="#5a4a38" stroke-width="3" stroke-linejoin="round">
+        <path d="M 980 470 C 1010 486, 1030 510, 1040 536 C 1048 556, 1042 574, 1026 586 C 1010 598, 980 604, 956 600 C 932 596, 910 584, 900 566 C 890 548, 892 526, 906 506 C 920 486, 950 454, 980 470 Z" />
+      </g>
+      <g id="outer-4" fill="url(#earthC)" stroke="#5a4a38" stroke-width="3" stroke-linejoin="round">
+        <path d="M 860 620 C 884 640, 900 664, 904 692 C 906 708, 894 720, 874 724 C 854 728, 822 726, 798 716 C 774 706, 758 690, 752 670 C 746 650, 748 630, 766 616 C 784 602, 836 600, 860 620 Z" />
+      </g>
+      <g id="outer-5" fill="url(#earthA)" stroke="#5a4a38" stroke-width="3" stroke-linejoin="round">
+        <path d="M 660 640 C 692 642, 714 654, 728 670 C 740 684, 740 702, 728 716 C 716 730, 690 742, 664 742 C 638 742, 606 734, 586 722 C 566 710, 560 694, 566 676 C 572 658, 592 640, 616 636 C 640 632, 628 638, 660 640 Z" />
+      </g>
+      <g id="outer-6" fill="url(#earthB)" stroke="#5a4a38" stroke-width="3" stroke-linejoin="round">
+        <path d="M 520 590 C 546 572, 570 562, 596 560 C 616 558, 628 568, 632 586 C 636 604, 630 628, 614 644 C 598 660, 570 668, 544 666 C 518 664, 490 652, 476 636 C 462 620, 456 600, 468 586 C 480 572, 494 608, 520 590 Z" />
+      </g>
+      <g id="outer-7" fill="url(#earthC)" stroke="#5a4a38" stroke-width="3" stroke-linejoin="round">
+        <path d="M 470 480 C 492 456, 520 440, 548 434 C 566 430, 580 438, 586 454 C 592 470, 590 490, 578 506 C 566 522, 542 534, 518 536 C 494 538, 468 530, 452 518 C 436 506, 430 490, 440 474 C 450 458, 448 504, 470 480 Z" />
+      </g>
+      <g id="outer-8" fill="url(#earthA)" stroke="#5a4a38" stroke-width="3" stroke-linejoin="round">
+        <path d="M 520 350 C 548 332, 576 320, 604 318 C 624 316, 638 326, 642 344 C 646 362, 640 382, 624 396 C 608 410, 580 418, 554 416 C 528 414, 500 402, 486 386 C 472 370, 466 350, 478 336 C 490 322, 492 368, 520 350 Z" />
+      </g>
+    </g>
+    <g id="grooves" stroke="#4c3f31" stroke-width="4" filter="url(#ridgeEmboss)" opacity="0.55">
+      <path d="M 640 320 Q 700 350 720 420 Q 740 360 812 344" />
+      <path d="M 832 422 Q 820 408 828 420 Q 900 430 968 370" />
+      <path d="M 892 442 Q 920 460 980 470" />
+      <path d="M 900 566 Q 860 600 860 620" />
+      <path d="M 752 670 Q 706 660 660 640" />
+      <path d="M 586 722 Q 560 690 520 590" />
+      <path d="M 476 636 Q 458 600 470 480" />
+      <path d="M 452 518 Q 480 470 520 350" />
+      <path d="M 554 416 Q 600 410 640 320" />
+    </g>
+  </g>
+</svg>

@@ -24,11 +24,38 @@ export default function PlayerStats({ hp, kp, energy }: Props) {
   };
 
   return (
-    <div className="flex justify-between bg-gray-800 text-white p-2 rounded">
-      <span>HP: {hp}</span>
-      <span>KP: {kp}</span>
-      <span>Energy: {energy}</span>
-      <button onClick={attack} className="ml-4 px-3 py-1 bg-red-600 rounded hover:bg-red-500">Attack</button>
+    <div className="w-full rounded-xl bg-[#1f2d3d] text-white p-3 shadow-md">
+      <div className="grid grid-cols-4 items-center gap-3">
+        <div className="flex items-center gap-2 px-3 py-2 rounded-lg bg-[#243645]">
+          <span className="text-lg">🔰</span>
+          <div className="text-sm">
+            <div className="text-neutral-300">HP</div>
+            <div className="font-semibold">{hp}</div>
+          </div>
+        </div>
+        <div className="flex items-center gap-2 px-3 py-2 rounded-lg bg-[#243645]">
+          <span className="text-lg">🔷</span>
+          <div className="text-sm">
+            <div className="text-neutral-300">KP</div>
+            <div className="font-semibold">{kp}</div>
+          </div>
+        </div>
+        <div className="flex items-center gap-2 px-3 py-2 rounded-lg bg-[#243645]">
+          <span className="text-lg">⚡</span>
+          <div className="text-sm">
+            <div className="text-neutral-300">Energy</div>
+            <div className="font-semibold">{energy}</div>
+          </div>
+        </div>
+        <div className="flex justify-end">
+          <button
+            onClick={attack}
+            className="px-4 py-2 bg-red-600 rounded-lg hover:bg-red-500 focus:outline-none focus:ring-2 focus:ring-red-300 text-sm font-semibold"
+          >
+            Attack
+          </button>
+        </div>
+      </div>
     </div>
   );
 }
