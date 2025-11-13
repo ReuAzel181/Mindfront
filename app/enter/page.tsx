@@ -26,20 +26,12 @@ export default function Enter() {
               tabIndex={0}
               aria-pressed={isSelected(i)}
               onClick={() => selectTile(i)}
-              onKeyDown={(e) => {
-                if (e.key === "Enter" || e.key === " ") {
-                  e.preventDefault();
-                  selectTile(i);
-                }
-              }}
-              className={`relative overflow-hidden transition-transform duration-300 ease-out select-none`}
+              className={`relative overflow-hidden select-none flex items-center justify-center`}
             >
               <img
                 src="/regions/island_land.png"
                 alt={`Temporary island tile ${i + 1}`}
-                className={`w-full h-auto object-contain transition-transform duration-300 ease-out ${
-                  isSelected(i) ? "scale-[0.95]" : "scale-[0.86]"
-                }`}
+                className="w-[60%] h-auto object-contain"
                 draggable={false}
               />
             </div>

@@ -26,7 +26,6 @@ export default function QuestionPanel({ setStats }: Props) {
   const [idx, setIdx] = useState(0);
   const [revealed, setRevealed] = useState(false);
   const [feedback, setFeedback] = useState<string | null>(null);
-  // no timer tracking needed
   const closeTimer = useRef<NodeJS.Timeout | null>(null);
   const [timeLeft, setTimeLeft] = useState(0);
   const TOTAL_MS = 15000;
@@ -65,7 +64,7 @@ export default function QuestionPanel({ setStats }: Props) {
           setIdx((i) => Math.min(i + 1, QUESTIONS.length - 1));
         }, 800);
       }
-    } catch (e) {
+    } catch {
       setFeedback('Error submitting answer');
     }
   };
@@ -81,14 +80,17 @@ export default function QuestionPanel({ setStats }: Props) {
   const isFinished = idx >= QUESTIONS.length - 1 && !revealed && feedback === null;
 
   return (
-    <section className="flex flex-col gap-3 p-5 bg-neutral-800/80 rounded-xl border border-neutral-700" aria-live="polite">
+    <section className="flex flex-col gap-5 p-6 bg-gradient-to-br from-[#0b1220] via-[#0f1e2e] to-[#0b1220] rounded-2xl border border-[#223448] shadow-2xl" aria-live="polite">
       <div className="flex items-center justify-between">
-        <div className="text-sm text-neutral-200">Turn: Player P1</div>
+        <div className="flex items-center gap-3">
+          <div className="px-2.5 py-1 rounded-lg bg-[#1b2a3a] text-xs font-semibold text-neutral-200">Turn: Player P1</div>
+          <div className="px-2.5 py-1 rounded-lg bg-purple-600/80 text-xs font-semibold">Arena Quiz</div>
+        </div>
         {!revealed && (
           <button
             aria-label="View question and start"
             onClick={reveal}
-            className="px-4 py-2 bg-blue-600 rounded-lg hover:bg-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-300 text-sm font-medium"
+            className="px-4 py-2 rounded-lg bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 focus:outline-none focus:ring-2 focus:ring-blue-300 text-sm font-semibold shadow"
           >
             View Question
           </button>
@@ -96,35 +98,44 @@ export default function QuestionPanel({ setStats }: Props) {
       </div>
 
       {revealed && (
-        <div className="w-full h-2 bg-neutral-700 rounded">
+        <div className="w-full h-2 rounded bg-[#0e1a28] overflow-hidden">
           <div
-            className="h-full bg-emerald-500 rounded transition-[width] duration-100"
+            className="h-full rounded bg-gradient-to-r from-emerald-500 via-teal-400 to-green-500 shadow-[0_0_12px_#10b981] transition-[width] duration-100"
             style={{ width: `${Math.round((timeLeft / TOTAL_MS) * 100)}%` }}
           />
         </div>
       )}
 
       {revealed ? (
-        <div className="flex flex-col gap-3">
-          <div className="text-base font-medium text-white">Question {idx + 1} of {QUESTIONS.length}</div>
-          <div className="text-sm text-neutral-200">{current.text}</div>
-          <div className="grid grid-cols-2 gap-2">
-            {current.options.map((opt) => (
+        <div className="flex flex-col gap-5">
+          <div className="flex items-center gap-3">
+            <div className="px-2.5 py-1 rounded bg-purple-600 text-xs font-semibold">Math</div>
+            <div className="px-2.5 py-1 rounded bg-amber-600 text-xs font-semibold">Easy</div>
+            <div className="text-sm text-neutral-300">Round {idx + 1}/{QUESTIONS.length}</div>
+          </div>
+          <div className="text-2xl font-semibold text-white tracking-wide">{current.text}</div>
+          <div className="grid grid-cols-2 gap-3">
+            {current.options.map((opt, i) => (
               <button
                 key={opt}
                 onClick={() => handleClick(opt)}
-                className="px-4 py-2 bg-neutral-700 hover:bg-neutral-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-300 text-sm font-medium"
+                className="group px-4 py-4 rounded-xl bg-gradient-to-br from-[#1c2a3a] to-[#122033] hover:from-[#26384a] hover:to-[#1a2b3f] border border-[#2a3d52] text-left focus:outline-none focus:ring-2 focus:ring-emerald-300 transition-transform duration-150 hover:-translate-y-0.5 shadow-sm"
               >
-                {opt}
+                <div className="flex items-center gap-3">
+                  <div className="w-9 h-9 rounded-lg bg-blue-600 text-white flex items-center justify-center font-bold shadow">{String.fromCharCode(65 + i)}</div>
+                  <div className="text-base text-white">{opt}</div>
+                </div>
               </button>
             ))}
           </div>
           {feedback && (
-            <div className={`text-sm ${feedback.startsWith('Correct') ? 'text-emerald-400' : 'text-red-400'}`}>{feedback}</div>
+            <div className={`text-sm font-medium ${feedback.startsWith('Correct') ? 'text-emerald-400' : 'text-red-400'}`}>{feedback}</div>
           )}
         </div>
       ) : (
-        <div className="text-xs text-neutral-300">Question hidden. Click &quot;View Question&quot; to begin.</div>
+        <div className="text-sm text-neutral-300">
+          Question hidden. Click &quot;View Question&quot; to begin.
+        </div>
       )}
 
       {isFinished && (

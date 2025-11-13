@@ -4,9 +4,10 @@ type Props = {
   hp: number;
   kp: number;
   energy: number;
+  onOpenShop?: () => void;
 };
 
-export default function PlayerStats({ hp, kp, energy }: Props) {
+export default function PlayerStats({ hp, kp, energy, onOpenShop }: Props) {
   const attack = async () => {
     try {
       const enemies = ['E1', 'E2', 'E3'];
@@ -24,8 +25,8 @@ export default function PlayerStats({ hp, kp, energy }: Props) {
   };
 
   return (
-    <div className="w-full rounded-xl bg-[#1f2d3d] text-white p-3 shadow-md">
-      <div className="grid grid-cols-4 items-center gap-3">
+    <div className="w-full rounded-2xl bg-gradient-to-br from-[#1b2534] to-[#0f1826] text-white p-4 shadow-lg border border-[#223448]">
+      <div className="grid grid-cols-4 items-center gap-4">
         <div className="flex items-center gap-2 px-3 py-2 rounded-lg bg-[#243645]">
           <span className="text-lg">🔰</span>
           <div className="text-sm">
@@ -47,10 +48,16 @@ export default function PlayerStats({ hp, kp, energy }: Props) {
             <div className="font-semibold">{energy}</div>
           </div>
         </div>
-        <div className="flex justify-end">
+        <div className="flex justify-end gap-2">
+          <button
+            onClick={onOpenShop}
+            className="px-4 py-2 rounded-lg bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 focus:outline-none focus:ring-2 focus:ring-blue-300 text-sm font-semibold shadow"
+          >
+            Shop
+          </button>
           <button
             onClick={attack}
-            className="px-4 py-2 bg-red-600 rounded-lg hover:bg-red-500 focus:outline-none focus:ring-2 focus:ring-red-300 text-sm font-semibold"
+            className="px-4 py-2 rounded-lg bg-gradient-to-r from-red-600 to-orange-600 hover:from-red-500 hover:to-orange-500 focus:outline-none focus:ring-2 focus:ring-red-300 text-sm font-semibold shadow"
           >
             Attack
           </button>
